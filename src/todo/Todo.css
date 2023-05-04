@@ -1,0 +1,35 @@
+.todo-container {
+  position: relative;
+  top: 50%;
+  transform: translateY(50%);
+  margin: auto;
+  width: 50%;
+  box-shadow: 5px 5px 5px #d8e3ec;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px;
+  background-color: #f0f4f7;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  font-family: "Roboto Slab";
+  font-size: 28px;
+}
+
+.add-container {
+  margin-top: 15px;
+  display: flex;
+  padding: 5px;
+  width: 80%;
+  gap: 10px;
+}
+.add-container input {
+  width: 80%;
+  border: none;
+  font-family: "Roboto Slab";
+  padding-left: 10px;
+  border-radius: 20px;
+}

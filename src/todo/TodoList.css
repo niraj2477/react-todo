@@ -1,0 +1,37 @@
+.main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .todo-list-container {
+    width: 90%;
+    padding: 5px;
+    border: 1px solid #4b4c4c;
+    border-radius: 20px;
+  }
+  .todo-list {
+    display: grid;
+    padding-left: 20px;
+    grid-template-columns: 80% auto;
+  }
+  .list-main {
+    border-bottom: 1px solid #4b4c4c;
+  }
+  .list-main:last-child {
+    border-bottom: 0px;
+  }
+  .action {
+    display: flex;
+    gap: 8px;
+  }
+  .disabled-div {
+    pointer-events: none;
+    opacity: 0.4;
+    text-decoration: line-through;
+  }
+  .remove-disable {
+    cursor: pointer;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
