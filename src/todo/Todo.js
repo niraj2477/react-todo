@@ -26,18 +26,26 @@ function Todo() {
     * @param {Object} e Event object
     */
     const todoSubmit = (e) => {
-        if ('' === newtodo.current.value) {
+        let task = newtodo.current.value.trim();
+        if ('' === task) {
+            alert('Please enter a task');
+            if (null !== prevTask) {
+                newtodo.current.value = prevTask.task;
+
+            } else {
+                newtodo.current.value = '';
+            }
             return;
         }
         if ('Update' === document.getElementById('submit').innerHTML) {
-            updateTodo(prevTask, newtodo.current.value);
+            updateTodo(prevTask, task);
             return;
         }
         /**
          * @param {number} id Randomly genrated id for the task
          */
         const id = Math.floor((Math.random() * 1000000) + 1);
-        let todo = { id, task: newtodo.current.value, completed: 0 }
+        let todo = { id, task: task, completed: 0 }
         let newTodo = [...Todos, todo];
         setTodos(newTodo);
         localStorage.setItem('todoList', JSON.stringify(newTodo));
@@ -57,6 +65,7 @@ function Todo() {
             return { id: todo.id, task: todo.task, completed: todo.completed }
         });
         setTodos([...newTodo]);
+        setPrevTask('');
         localStorage.setItem('todoList', JSON.stringify(newTodo));
         document.getElementById('submit').innerHTML = 'Add';
         newtodo.current.value = '';
