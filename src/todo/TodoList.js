@@ -21,10 +21,10 @@ function TodoList({ List, removeTodoItem, inputref, setPrevTask, setTodos }) {
     const markComplete = (e, index) => {
         e.target.closest('.todo-list').classList.toggle("disabled-div");
         let newTodo = List.map((todo, idx) => {
-            if (idx === index) {
-                return { task: todo.task, completed: 1 };
+            if (todo.id === index) {
+                return { id: todo.id, task: todo.task, completed: 1 };
             }
-            return { task: todo.task, completed: 1 }
+            return { id: todo.id, task: todo.task, completed: todo.completed };
         });
         setTodos([...newTodo]);
         localStorage.setItem('todoList', JSON.stringify(newTodo));
@@ -55,9 +55,9 @@ function TodoList({ List, removeTodoItem, inputref, setPrevTask, setTodos }) {
                                             {todo.task}
                                         </p>
                                         <div className='action' >
-                                            <button type="button" className='button' onClick={(event) => markComplete(event, index)} > <img className='svg' src={CheckIcon} alt="edit task" />  </button>
+                                            <button type="button" className='button' onClick={(event) => markComplete(event, todo.id)} > <img className='svg' src={CheckIcon} alt="edit task" />  </button>
                                             <button type="button" className='button' onClick={(event) => editTodo(event, todo)}> <img className='svg' src={PencilIcon} alt="edit task" />  </button>
-                                            <button type="button" className='button remove-disable' onClick={(event) => removeTodoItem(index,todo)}> <img className='svg' src={DeleteIcon} alt='delete button' /></button>
+                                            <button type="button" className='button remove-disable' onClick={(event) => removeTodoItem(index, todo)}> <img className='svg' src={DeleteIcon} alt='delete button' /></button>
                                         </div>
 
                                     </div>
