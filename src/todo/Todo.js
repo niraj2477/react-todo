@@ -29,7 +29,7 @@ function Todo() {
         let task = newtodo.current.value.trim();
         if ('' === task) {
             alert('Please enter a task');
-            if (null !== prevTask) {
+            if ('' !== prevTask) {
                 newtodo.current.value = prevTask.task;
 
             } else {
